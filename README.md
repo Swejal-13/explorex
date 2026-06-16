@@ -223,6 +223,3 @@ npm run build
 - [x] Mobile Responsive
 
 ---
-
-## License
-MIT
