@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-ink bg-paper antialiased;
+  }
+
+  .dark body {
+    @apply bg-ink text-white;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-paper; }
+  ::-webkit-scrollbar-thumb { @apply bg-gold-light rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-gold; }
+}
+
+@layer components {
+  .section-label {
+    @apply text-[10px] tracking-[3px] uppercase text-gold mb-2;
+  }
+
+  .section-title {
+    @apply font-display text-4xl font-light text-ink dark:text-white;
+  }
+
+  .btn-primary {
+    @apply bg-gold text-ink text-xs tracking-widest uppercase px-6 py-3 hover:bg-gold-dark transition-colors font-medium;
+  }
+
+  .btn-outline {
+    @apply border border-paper-2 dark:border-white/10 text-ink dark:text-white text-xs tracking-widest uppercase px-6 py-3 hover:border-gold transition-colors;
+  }
+
+  .input-base {
+    @apply w-full border border-paper-2 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-3 text-sm outline-none text-ink dark:text-white placeholder-gray-400 focus:border-gold transition-colors;
+  }
+
+  .label-base {
+    @apply block text-[10px] tracking-widest uppercase text-gray-500 dark:text-white/40 mb-1.5;
+  }
+}
+
+@layer utilities {
+  .bg-white\/3 { background-color: rgba(255,255,255,0.03); }
+  .border-white\/8 { border-color: rgba(255,255,255,0.08); }
+}
+
+/* Framer Motion: disable on reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
